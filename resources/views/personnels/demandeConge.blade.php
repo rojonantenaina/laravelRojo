@@ -22,10 +22,11 @@
   }
   ```
 -->
+{{-- action="{{route('personnel.update',$personnel->id)}}"  --}}
 <div class=" flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
   <div class="max-w-md w-full space-y-1">
     
-    <form class="mt-8 space-y-9" action="{{route('personnel.update',$personnel->id)}}" method="POST">
+    <form class="mt-8 space-y-9" method="POST">
       @csrf
       @method('PUT')
       <input type="hidden" name="remember" value="true">
@@ -33,17 +34,10 @@
         <!-- Libelle -->
         <div class="col-span-6 sm:col-span-4">
             <label class="block font-medium text-sm text-gray-700" for="libelle">
-                Nom du personnel
+                Demande de congé pour le personnel:  {{ $personnel->nomPersonnel }} {{ $personnel->prenomPersonnel }}
             </label>
-            <input value="{{ $personnel->nomPersonnel }}" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" name="nomPersonnel" id="nomPersonnel" type="text" placeholder="Nom"
-            >
-        </div>
-        <div class="col-span-6 sm:col-span-4">
-            <label class="block font-medium text-sm text-gray-700" for="libelle">
-                Prenom du Personnel
-            </label>
-            <input value="{{ $personnel->prenomPersonnel }}" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" name="prenomPersonnel" id="prenomPersonnel" type="text" placeholder="Prénom"
-            >
+
+            
         </div>
         <div class="col-span-6 sm:col-span-4">
             <label class="block font-medium text-sm text-gray-700" for="libelle">
@@ -64,11 +58,11 @@
                 Service
             </label>           
             <select name="service" class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
-                @foreach($service as $service)
+                {{-- @foreach($service as $service)
                 <option value="{{ $service->libelle }}">
                      {{ $service->libelle }}
                      @endforeach 
-                </option>                            
+                </option>                             --}}
             </select>
         </div>
         <div class="col-span-6 sm:col-span-4">

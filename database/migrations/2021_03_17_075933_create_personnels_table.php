@@ -19,10 +19,10 @@ class CreatePersonnelsTable extends Migration
             $table->string('prenomPersonnel');
             $table->date('dateNais');
             $table->string('lieuNais');
+            $table->string('service');
             $table->string('sexe');
             $table->integer('CIN');
             $table->string('situation');
-            $table->integer('nbEnfant');
             $table->string('adresse');
             $table->string('mail');
             $table->integer('telephone');

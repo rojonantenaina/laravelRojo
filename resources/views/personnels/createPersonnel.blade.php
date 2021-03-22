@@ -42,6 +42,18 @@
                 Prenom du personnel
             </label>
             <input  class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" name="prenomPersonnel" id="prenomPersonnel" type="text"  placeholder="Prenom du personnel">
+        </div>        
+        <div class="col-span-6 sm:col-span-4">
+            <label class="block font-medium text-sm text-gray-700" for="role">
+                Service
+            </label>           
+            <select name="service" class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
+                @foreach($service as $service)
+                <option value="{{ $service->libelle }}">
+                     {{ $service->libelle }}
+                     @endforeach 
+                </option>                            
+            </select>
         </div>
         <div class="col-span-6 sm:col-span-4">
             <label class="block font-medium text-sm text-gray-700" for="role">
@@ -55,21 +67,7 @@
             </label>
             <input  class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" name="lieuNais" id="lieuNais" type="text"  placeholder="Lieu de naissance"
             >
-        </div>
-        <div class="col-span-6 sm:col-span-4">
-            <label class="block font-medium text-sm text-gray-700" for="role">
-                Pére
-            </label>
-            <input  class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" name="pere" id="lieuNais" type="text"  placeholder="Lieu de naissance"
-            >
-        </div>
-        <div class="col-span-6 sm:col-span-4">
-            <label class="block font-medium text-sm text-gray-700" for="role">
-               Mére
-            </label>
-            <input  class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full" name="mere" id="lieuNais" type="text"  placeholder="Lieu de naissance"
-            >
-        </div>
+        </div>        
         {{-- <div class="px-2 w-1/2">
             LE DEMI PORTION
         </div> --}}
@@ -79,8 +77,7 @@
             </label>
             <select name="sexe" class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
                 <option value="Masculin">Masculin</option>
-                <option value="Feminin">Feminin</option>
-                
+                <option value="Feminin">Feminin</option>                
             </select>
         </div>
         <div class="col-span-6 sm:col-span-4">
@@ -94,13 +91,13 @@
                 Situation amoureuse
             </label>
             <select name="situation" class="form-select w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
-                <option value="celibataire">Celibataire</option>
-                <option value="encouple">En couple</option>
-                <option value="marie">Marié</option>
-                <option value="fience">Fiancé</option>
-                <option value="veuf">Veuf</option>
-                <option value="veuve">Veuve</option>
-                <option value="divorce">Divorcé</option>
+                <option value="Célibataire">Célibataire</option>
+                <option value="En couple">En couple</option>
+                <option value="Marié">Marié(e)</option>
+                <option value="Fiencé(e)">Fiancé(e)</option>
+                <option value="Veuf">Veuf</option>
+                <option value="Veuve">Veuve</option>
+                <option value="Divorcé(e)">Divorcé(e)</option>
             </select>
         </div>
         <div class="col-span-6 sm:col-span-4">

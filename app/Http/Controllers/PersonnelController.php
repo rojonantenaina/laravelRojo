@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Personnel;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class PersonnelController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +28,8 @@ class PersonnelController extends Controller
      */
     public function create()
     {
-        return view('personnels.createPersonnel');
+        $service = Service::all();
+        return view('personnels.createPersonnel', compact('service'));
     }
 
     /**
@@ -42,12 +45,10 @@ class PersonnelController extends Controller
             'prenomPersonnel' => 'required',
             'dateNais' => 'required',
             'lieuNais' => 'required',
-            'pere' => 'required',
-            'mere' => 'required',
+            'service' => 'required',
             'sexe' => 'required',
             'CIN' => 'required',
             'situation' => 'required',
-            'nbEnfant' => 'required',
             'adresse' => 'required',  
             'mail' => 'required',
             'telephone' => 'required',
@@ -65,9 +66,10 @@ class PersonnelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Personnel $personnel)
     {
-        //
+        $service = Service::all();
+        return view('personnels.demandeConge', compact('personnel','service'));
     }
 
     /**
@@ -78,7 +80,8 @@ class PersonnelController extends Controller
      */
     public function edit(Personnel $personnel)
     {
-        return view('personnels.editPersonnel', compact('personnel'));
+        $service = Service::all();
+        return view('personnels.editPersonnel', compact('personnel','service'));
     }
 
     /**
@@ -95,12 +98,10 @@ class PersonnelController extends Controller
             'prenomPersonnel' => 'required',
             'dateNais' => 'required',
             'lieuNais' => 'required',
-            'pere' => 'required',
-            'mere' => 'required',
+            'service' => 'required',
             'sexe' => 'required',
             'CIN' => 'required',
             'situation' => 'required',
-            'nbEnfant' => 'required',
             'adresse' => 'required',  
             'mail' => 'required',
             'telephone' => 'required',            
@@ -124,4 +125,11 @@ class PersonnelController extends Controller
         $personnel->delete();
         return redirect()->route('personnel.index');
     }
+
+    public function demandeConge(Personnel $personnel)
+    {           
+        $personnel = Personnel::find(8);
+        return view('personnels.demandeConge',[ 'personnel' => $personnel ]);
+    }
+    
 }

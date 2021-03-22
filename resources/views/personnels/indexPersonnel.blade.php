@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
            <!-- This example requires Tailwind CSS v2.0+ -->
            <div class="block mb-8">
-                <a href="{{route('personnel.create')}}" type="button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <a href="{{route('personnel.create')}}" type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-purple-500 hover:bg-purple-600 hover:shadow-lg">
                     Nouveau personnel 
                 </a>
            </div>
@@ -21,7 +21,7 @@
           <thead class="bg-gray-50">
             <tr>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Immatricule
+                IM
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Nom 
@@ -36,22 +36,16 @@
                 Lieu de naissance
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Pére
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Mére
+                Service
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Sexe
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Carte d'indentité
+                CIN
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Situation amoureuse
-              </th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Nombre d'enfant
+                Situation
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Addresse
@@ -89,10 +83,7 @@
                 {{ $personnel->lieuNais}}
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {{ $personnel->pere}}
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {{ $personnel->mere}}
+                {{ $personnel->service}}
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {{ $personnel->sexe}}
@@ -102,10 +93,7 @@
               </td> 
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {{ $personnel->situation}}
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {{ $personnel->nbEnfant}}
-              </td>  
+              </td> 
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 {{ $personnel->adresse}}
               </td> 
@@ -116,13 +104,16 @@
                 {{ $personnel->telephone}}
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                <a  class="text-indigo-600 hover:text-indigo-900" href="{{ route('personnel.edit',$personnel->id) }}">Edit</a>
+                <a  class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-green-500 hover:bg-green-600 hover:shadow-lg" href="{{ route('personnel.edit',$personnel->id) }}">Modifier</a>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <a  class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-green-500 hover:bg-green-600 hover:shadow-lg" href="{{ route('personnel.demander', $personnel->id) }}">Demander</a>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
               <form action="{{ route('personnel.destroy',$personnel->id) }}" method="POST">
                      @csrf
                      @method('DELETE')
-                  <button type="submit" class="text-red-600 hover:text-indigo-900">Supprimer</button>
+                  <button type="submit" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-red-500 hover:bg-red-600 hover:shadow-lg">Supprimer</button>
               </form>
               </td>
             </tr>

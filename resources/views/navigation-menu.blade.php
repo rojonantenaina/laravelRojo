@@ -22,25 +22,15 @@
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('etatConge.index') }}" :active="request()->routeIs('etatConge.index')">
-                        {{ __('Etat Congé') }}
-                    </x-jet-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('interesse.index') }}" :active="request()->routeIs('interesse.index')">
-                        {{ __('Demandeur Congé') }}
-                    </x-jet-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('personnel.index') }}" :active="request()->routeIs('personnel.index')">
                         {{ __('Personnel') }}
                     </x-jet-nav-link>
-                </div>
+                </div> 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('essai.index') }}" :active="request()->routeIs('essai.index')">
-                        {{ __('Essai') }}
+                    <x-jet-nav-link href="{{ route('travail.index') }}" :active="request()->routeIs('travail.index')">
+                        {{ __('Travail') }}
                     </x-jet-nav-link>
-                </div>
+                </div>                
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

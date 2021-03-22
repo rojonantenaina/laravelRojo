@@ -9,5 +9,5 @@ class Personnel extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nomPersonnel','prenomPersonnel','dateNais','lieuNais','pere','mere','sexe','CIN','situation','nbEnfant','adresse','mail','telephone'];
+    protected $fillable = ['nomPersonnel','prenomPersonnel','dateNais','lieuNais','service','sexe','CIN','situation','adresse','mail','telephone'];
 }

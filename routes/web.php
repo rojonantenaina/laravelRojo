@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Personnel;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('demander/id', [\App\Http\Controllers\PersonnelController::class, 'demandeConge'])->name('personnel.demander');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -29,4 +34,4 @@ Route::resource('interesse', \App\Http\Controllers\InteresseController::class);
 
 Route::resource('personnel', \App\Http\Controllers\PersonnelController::class);
 
-Route::resource('essai', \App\Http\Controllers\EssaiController::class);
+Route::resource('travail', \App\Http\Controllers\TravailController::class);
